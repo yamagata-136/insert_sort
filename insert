@@ -1,1 +1,28 @@
 #include<stdio.h>
+
+int main(){
+    int arr[5] = {3,7,2,1,5};
+    int i,j,index,tmp;
+
+    for(i=1;i<5;i++)/*0番目の要素はソートする必要はない*/
+    {
+        index = i;/*比較する要素*/
+
+        /*0番目の要素はなにも行わない。比較する要素が大きい場合に要素の入れ替え*/
+        while((index>0) && (arr[index-1]>arr[index]))
+        {
+            tmp = arr[index-1];
+            arr[index-1] = arr[index];
+            arr[index] = tmp;
+
+            index--;/*0番目の要素まで比較するため*/
+        }
+    }
+    /*出力*/
+    for(i=0;i<5;i++)
+    {
+        printf("%d",arr[i]);
+    }
+
+    return 0;
+}
